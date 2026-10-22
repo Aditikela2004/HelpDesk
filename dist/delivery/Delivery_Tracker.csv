@@ -1,0 +1,18 @@
+Item,Workstream,Owner role,Gate,Status,Evidence
+Stakeholder brief and pain points,Product,Product Manager,G1 Define,Done,Brief section of handbook
+"Charter, scope, MoSCoW",Product,Project Manager,G1 Define,Done,Handbook 3
+Requirements R01 to R10 and rules,Analysis,Business Analyst,G1 Define,Done,Requirements_Traceability.csv
+Information architecture and flows,Design,UI/UX Designer,G2 Design,Done,Handbook 6
+"Wireframes (Overview, Create, Detail)",Design,UI/UX Designer,G2 Design,Done,ServiceFlow_Wireframes.svg
+Design tokens and component states,Design,Visual Designer,G2 Design,Done,Handbook 6
+Core logic module,Engineering,Developer,G3 Build,Done,dist/core.js
+Interface,Engineering,Developer,G3 Build,Done,"dist/app.js, styles.css"
+Metric dictionary and seed reconciliation,Data,Data Analyst,G3 Build,Done,Handbook 8
+Unit tests,Quality,QA Tester,G4 Verify,Done,Unit_Test_Results.txt
+Static checks,Quality,QA Tester,G4 Verify,Done,Static_Checks.txt
+Browser checks (Chromium),Quality,QA Tester,G4 Verify,Done,Browser_Check_Results.txt
+Manual acceptance scripts M01 to M10,Quality,QA Tester,G4 Verify,Pending human tester,QA_Evidence.md
+Intended-use assessment,Validation,Validation Lead,G4 Verify,Done,QA_Evidence.md
+Environment and configuration,Release,Software Environment Team,G5 Release,Done,"vercel.json, README.md"
+Deployment and verification,Release,Deployment and Production Support Team,G5 Release,See final handoff,Handbook 10
+Handover,Release,Project Manager,G5 Release,Done,Handbook 11

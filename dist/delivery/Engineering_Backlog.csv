@@ -1,0 +1,35 @@
+Key,Issue Type,Summary,Requirement,Owner role,MoSCoW,Size,Status,Acceptance criteria
+SFE-001,Epic,Request intake,"R01, R02",Product Manager,Must,L,Done,
+SFE-002,Story,Validate submission fields with trimming and length limits,R01,Developer,Must,S,Done,"Title 5-100, requester 1-60, description 10-2000 after trimming"
+SFE-003,Story,"Reject invalid department, priority, category and blank input",R01,Developer,Must,S,Done,Whitespace-only and unknown values return a field error
+SFE-004,Story,Create request with unique identifier and department routing,R02,Developer,Must,S,Done,ID is SF- plus next number; starts Open and Unassigned
+SFE-005,Story,Write initial history entry and timestamps,"R02, R04",Developer,Must,XS,Done,"createdAt, updatedAt, one history entry"
+SFE-006,Epic,Ownership and lifecycle,"R03, R04",Product Manager,Must,L,Done,
+SFE-007,Story,Assign an owner from the request's department,R03,Developer,Must,S,Done,Owners from another department are rejected
+SFE-008,Story,Change status with owner required for In progress and Resolved,R03,Developer,Must,S,Done,Unassigned requests cannot move forward
+SFE-009,Story,Reopen a resolved request,"R03, R04",Developer,Must,XS,Done,Status can leave Resolved; resolvedAt cleared
+SFE-010,Story,Record owner and status changes; skip no-op saves,R04,Developer,Must,S,Done,No history entry when nothing changes
+SFE-011,Story,"Maintain resolvedAt on resolve, reopen and re-resolve",R04,Developer,Must,S,Done,New resolution time recorded each time
+SFE-012,Epic,Find and filter requests,R05,Product Manager,Must,M,Done,
+SFE-013,Story,"Search across ID, title, requester, description, owner",R05,Developer,Must,S,Done,"Case-insensitive, trimmed"
+SFE-014,Story,"Combine search with department, status, priority and Active",R05,Developer,Must,S,Done,Active = Open + In progress
+SFE-015,Story,High-priority review action excludes resolved requests,R05,Developer,Must,XS,Done,Shows only active High requests
+SFE-016,Story,No-results state and Clear filters,R05,UI/UX Designer,Must,XS,Done,Message and one-click reset
+SFE-017,Epic,Metrics and analytics,R06,Data Analyst,Must,M,Done,
+SFE-018,Story,"Overview cards, recent requests and department workload",R06,Developer,Must,M,Done,Numbers match the directory
+SFE-019,Story,Analytics view with definitions and empty-data handling,R06,Data Analyst,Must,M,Done,No NaN or division error with zero records
+SFE-020,Epic,Persistence and export,"R07, R08",Developer,Must,M,Done,
+SFE-021,Story,Save to localStorage and validate on load,R07,Developer,Must,S,Done,"Malformed data is rejected, not partly loaded"
+SFE-022,Story,"Warn when storage is missing, unreadable or full",R07,Developer,Must,S,Done,Visible warning; memory use continues; CSV offered
+SFE-023,Story,CSV export with escaping and formula protection,R08,Developer,Must,S,Done,Quotes escaped; leading = + - @ neutralized
+SFE-024,Story,Reset demonstration data after confirmation,R07,Developer,Should,XS,Done,Cancel keeps data; confirm restores 12 records
+SFE-025,Story,"Responsive layout, labeled inputs, visible focus, text status labels",R09,UI/UX Designer,Must,M,Done,Works at 375 px wide without page scroll
+SFE-026,Story,Dialog keyboard behavior and focus return,R09,Developer,Must,S,Done,Escape closes; focus returns to opener or heading
+SFE-027,Story,Delivery case study view with downloads,R10,Project Manager,Must,S,Done,Every download link resolves
+SFE-028,Story,"Automated unit, static and browser checks with recorded results",R10,QA Tester,Must,M,Done,Results files list pass and fail
+SFE-029,Story,Hosting configuration and deployment verification,R10,Deployment and Production Support Team,Must,S,Done,Deployed files match tested files
+SFE-030,Story,Sign-in and roles,None (v1),Product Manager,Won't,XL,Deferred,Not in version 1
+SFE-031,Story,Email or chat notifications,None (v1),Product Manager,Won't,L,Deferred,Not in version 1
+SFE-032,Story,File uploads on requests,None (v1),Product Manager,Won't,L,Deferred,Not in version 1
+SFE-033,Story,SLA targets and automated enforcement,None (v1),Product Manager,Won't,L,Deferred,Not in version 1
+SFE-034,Story,"Shared database, sync and enterprise integrations",None (v1),CIO,Won't,XL,Deferred,Not in version 1

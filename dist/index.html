@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ServiceFlow | Employee service request portal (portfolio prototype)</title>
+<meta name="description" content="ServiceFlow is a local-data portfolio prototype of an employee service request portal for the fictional company Northstar Studio.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2314272e'/%3E%3Cpath d='M16 40l10-12 8 8 14-18' fill='none' stroke='%23fff' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+<div class="shell">
+  <aside class="side">
+    <div class="brand">
+      <span class="logo" aria-hidden="true"></span>
+      <div><strong>ServiceFlow</strong><small>Northstar Studio (fictional)</small></div>
+    </div>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="#overview" data-view="overview">Overview</a></li>
+        <li><a href="#requests" data-view="requests">Requests</a></li>
+        <li><a href="#analytics" data-view="analytics">Analytics</a></li>
+        <li><a href="#case-study" data-view="case-study">Delivery case study</a></li>
+      </ul>
+    </nav>
+    <p class="side-note">Local-data portfolio prototype. Data stays in this browser.</p>
+  </aside>
+  <div class="content">
+    <div class="banner" role="note">
+      <strong>Portfolio prototype.</strong> Fictional company, demonstration records, no sign-in. Data is stored only in this browser. The hosted demo sends anonymous usage events (counts and categories, never request text). Department filters are views, not security permissions.
+    </div>
+    <div id="storage-warning" class="warning" role="alert" hidden></div>
+    <main id="main" tabindex="-1">
+      <p id="loading" class="muted">Loading ServiceFlow&hellip;</p>
+      <noscript><p class="warning">ServiceFlow needs JavaScript to run.</p></noscript>
+      <section id="view-overview" class="view" aria-labelledby="h-overview" hidden></section>
+      <section id="view-requests" class="view" aria-labelledby="h-requests" hidden></section>
+      <section id="view-analytics" class="view" aria-labelledby="h-analytics" hidden></section>
+      <section id="view-case-study" class="view" aria-labelledby="h-case" hidden></section>
+    </main>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  </div>
+</div>
+
+<dialog id="dlg-new" aria-labelledby="dlg-new-title"></dialog>
+<dialog id="dlg-detail" aria-labelledby="dlg-detail-title"></dialog>
+<dialog id="dlg-reset" aria-labelledby="dlg-reset-title"></dialog>
+
+<script src="config.js"></script>
+<script src="core.js"></script>
+<script src="track.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

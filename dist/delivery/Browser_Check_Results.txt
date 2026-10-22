@@ -1,0 +1,25 @@
+PASS B01 Overview shows seed metrics and high-priority notice
+PASS B02 Create a request, see it listed, and keep it after a refresh
+PASS B03 Invalid and blank fields show errors, move focus, and create nothing
+PASS B04 Assignment and lifecycle: owner required, then In progress, then Resolved, with history
+PASS B05 Reopening clears the resolved time and is recorded in history
+PASS B06 A save that changes nothing says so and adds no history
+PASS B07 Search combines with filters; no-results state and Clear filters work
+PASS B08 Review high-priority action shows only active high-priority requests
+PASS B09 Analytics shows 8 active, 2 high, 33.3 percent and 20.25 hours with definitions
+PASS B10 CSV download works, has all records, and neutralizes formula text
+PASS B11 Reset asks for confirmation; cancel keeps data, confirm restores demo data
+PASS B12 Narrow screen (375 px): no page-level horizontal scroll, nav and dialogs usable
+PASS B13 Keyboard: open a request with Enter, focus starts in the dialog and never reaches the page behind it, Escape returns focus
+PASS B14 Corrupted saved data: warning shown, demo data used, stored text untouched until a change
+PASS B15 Storage unavailable: clear warning, app still works in memory, CSV export offered
+PASS B16 User text is shown as text, not parsed as HTML
+PASS B17 Delivery case study lists the supporting artifacts and states the limits
+PASS B18 No console or page errors during a full walk through all four views
+PASS B19 Status colors are always accompanied by text labels
+PASS B20 Dark teal sidebar, main text and primary action colors match the design tokens
+PASS B21 Analytics is off by default: no request leaves for Mixpanel
+PASS B22 With a token set, events fire with categorical properties only and no free text
+PASS B23 Extended sample loads 60 synthetic records after confirmation
+
+23 passed, 0 failed, 23 total

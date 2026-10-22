@@ -1,0 +1,16 @@
+PASS S01 core.js and app.js parse as JavaScript
+PASS S02 required site files exist
+PASS S03 all required delivery artifacts exist and are non-empty
+PASS S04 every artifact listed in app.js exists in the delivery folder
+PASS S05 traceability covers R01 to R10 with tests and disposition
+PASS S06 backlog has at least 30 items
+PASS S07 vercel.json outputDirectory is dist
+PASS S08 no innerHTML assignments in app.js
+PASS S09 no external network resources in index.html or styles.css
+PASS S10 handbook and plan make no unsupported claims (no real approvals, savings or adoption)
+PASS S11 seed CSV has 12 data rows
+PASS S12 app.js has role table for 17 roles
+PASS S13 source config.js ships with an empty analytics token and no token appears in source files
+PASS S14 track.js parses and lists the nine required events
+
+14 passed, 0 failed

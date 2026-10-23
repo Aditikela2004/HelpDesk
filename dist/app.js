@@ -3,8 +3,7 @@
   "use strict";
   var C = window.ServiceFlowCore;
   var STORE_KEY = "serviceflow.v1";
-  var ROLES = /*ROLES_START*/[["CEO and executive sponsor", "Fund a one-day MVP and ask for one outcome: employees know who owns a request and what state it is in.", "Sponsor statement and proposed acceptance gates (simulated)."], ["CIO", "Accept a buildless, browser-local prototype for the demonstration and name what blocks production use.", "Technology rationale, security boundaries, production gap list."], ["Operations Director", "Supply the brief. Limit version 1 to IT, Facilities and HR with ownership and workload visibility.", "Simulated brief and pain points."], ["Department heads", "Require named owners per department and a view of active workload.", "Owner lists and workload requirements."], ["Employees and end users", "Submit once, then see owner and status without asking.", "Assumed personas and example requests."], ["Product Manager", "Prioritize with MoSCoW. Defer notifications, uploads, SLA enforcement and sign-in.", "Problem statement, PRD, roadmap."], ["Project Manager", "Plan the build as one day with five release gates and a short risk register.", "Charter, work breakdown, plan, RAID, decision log, release checklist, handover."], ["Program Manager", "Coordinate four workstreams around shared gates, and show what comes after version 1.", "Program view and dependency map."], ["Business Analyst", "Turn the brief into ten testable requirements with explicit business rules.", "R01 to R10, user stories, acceptance criteria, rules."], ["UI/UX Designer", "Design one submission flow and one assignment and resolution flow, with clear empty and error states.", "Information architecture, flows, wireframes, usability study proposal."], ["Visual Designer", "Keep the look restrained, with text labels on every status color.", "Design tokens and component states."], ["Developer", "Separate business logic from rendering, validate stored data, and escape user text.", "Source code and README."], ["Data Analyst", "Define each metric and prove the seed data reconciles by hand.", "Metric dictionary, seed reconciliation, sample CSV."], ["QA Tester", "Test every requirement automatically where possible and record only what was executed.", "Test strategy, automated tests, manual scripts, QA evidence."], ["Validation Lead", "Judge whether the prototype is fit for its stated intended use, and for nothing more.", "Intended-use assessment and release recommendation."], ["Software Environment Team", "Define development, preview and hosted environments, configuration, and the source freeze.", "Environment and configuration notes."], ["Deployment and Production Support Team", "Package, deploy, verify, and describe rollback and support ownership for a prototype.", "Deployment runbook and handover."]]/*ROLES_END*/;
-  var DOWNLOADS = /*DOWNLOADS_START*/[["Confluence_Handbook.md", "Product and technical handbook (Markdown)"], ["Engineering_Backlog.csv", "Engineering backlog (Jira import layout)"], ["Delivery_Tracker.csv", "Cross-functional delivery tracker (monday.com layout)"], ["Requirements_Traceability.csv", "Need to requirement to test to release disposition"], ["ServiceFlow_Wireframes.svg", "Editable SVG wireframes"], ["Sample_Requests.csv", "The 12 demonstration records as CSV"], ["Tool_Mapping.md", "Which tool holds what, and what was actually used"], ["QA_Evidence.md", "Executed test evidence, gaps and release recommendation"], ["Unit_Test_Results.txt", "Raw output of the unit tests"], ["Static_Checks.txt", "Raw output of the static checks"], ["Browser_Check_Results.txt", "Raw output of the browser checks"]]/*DOWNLOADS_END*/;
+  var DOWNLOADS = /*DOWNLOADS_START*/[["ServiceFlow_Master_Delivery_Plan.docx", "Master delivery plan (Word)"], ["Confluence_Handbook.md", "Product and technical handbook (Markdown)"], ["Engineering_Backlog.csv", "Engineering backlog (Jira import layout)"], ["Delivery_Tracker.csv", "Cross-functional delivery tracker (monday.com layout)"], ["Requirements_Traceability.csv", "Need to requirement to test to release disposition"], ["ServiceFlow_Wireframes.svg", "Editable SVG wireframes"], ["Sample_Requests.csv", "The 12 demonstration records as CSV"], ["Tool_Mapping.md", "Which tool holds what, and what was actually used"], ["QA_Evidence.md", "Executed test evidence, gaps and release recommendation"], ["Unit_Test_Results.txt", "Raw output of the unit tests"], ["Static_Checks.txt", "Raw output of the static checks"], ["Browser_Check_Results.txt", "Raw output of the browser checks"]]/*DOWNLOADS_END*/;
 
   var state = {
     requests: [],
@@ -259,41 +258,90 @@
   renderers["case-study"] = function () {
     var root = $("view-case-study"); clear(root);
     root.classList.add("cs");
-    var rows = ROLES.map(function (r) { return h("tr", null, [h("th", { scope: "row", text: r[0] }), h("td", { text: r[1] }), h("td", { text: r[2] })]); });
-    root.appendChild(h("div", { class: "page-head" }, [h("div", null, [h("h1", { id: "h-case", text: "Delivery case study" }), h("p", { class: "muted", text: "How one simulated business need moved from definition to release. AI-assisted independent portfolio project." })])]));
-    root.appendChild(h("div", { class: "notice" }, [h("strong", { text: "Read this first. " }), "Northstar Studio, its people, the brief, the personas and the sample requests are fictional. No stakeholder approved this work, no user research was done, and no adoption, savings or production results exist. Role contributions below describe decisions and deliverables, not real people."]));
-    root.appendChild(h("div", { class: "panel" }, [
-      h("h2", { text: "The problem (simulated brief)" }),
-      h("p", { text: "Employees of a fictional 75-person company ask for IT, Facilities and HR help through scattered emails and messages. Requests arrive incomplete, nobody knows who owns them, people chase for updates, and department heads cannot see workloads." }),
-      h("h2", { text: "MVP decisions" }),
-      h("ul", null, ["Structured form with validated fields, so requests arrive complete (R01).", "Routing by department with a department-specific owner and an Unassigned state (R02, R03).", "Three statuses, with an owner required before work starts, and a dated history of owner and status changes (R03, R04).", "One shared set of records feeds the directory, overview and analytics, so the numbers always agree (R05, R06).", "Browser-local storage, with validation on load and a visible warning when saving fails (R07).", "CSV export that neutralizes spreadsheet formulas (R08).", "Left out on purpose: sign-in, shared database, email, file uploads, SLA enforcement, enterprise integrations."].map(function (t) { return h("li", { text: t }); }))
+    function ol(items) { return h("ol", null, items.map(function (t) { return h("li", { text: t }); })); }
+    function ul(items) { return h("ul", null, items.map(function (t) { return h("li", { text: t }); })); }
+    function sec(title, nodes) { return h("div", { class: "panel" }, [h("h2", { text: title })].concat(nodes)); }
+    function table(head, rows) {
+      return h("div", { class: "table-wrap", tabindex: "0", role: "region", "aria-label": head[0] + " table, scrollable" }, [h("table", null, [
+        h("thead", null, [h("tr", null, head.map(function (t) { return h("th", { scope: "col", text: t }); }))]),
+        h("tbody", null, rows.map(function (r) { return h("tr", null, r.map(function (c, i) { return i === 0 ? h("th", { scope: "row", text: c }) : h("td", { text: c }); })); }))])]);
+    }
+    root.appendChild(h("div", { class: "page-head" }, [h("div", null, [
+      h("h1", { id: "h-case", text: "Delivery case study" }),
+      h("p", { class: "muted", text: "ServiceFlow, an employee service request portal. Product and delivery write-up by the product and project lead." })])]));
+    root.appendChild(h("div", { class: "cards" }, [
+      card("3", "Departments in scope"), card("10", "Requirements, each with a test"), card("5", "Release gates"), card("63", "Automated checks passing")
     ]));
-    root.appendChild(h("div", { class: "panel" }, [h("h2", { text: "Role contributions (simulated)" }),
-      h("div", { class: "table-wrap", tabindex: "0", role: "region", "aria-label": "Role contributions, scrollable" }, [h("table", null, [h("thead", null, [h("tr", null, ["Role", "Decision", "Deliverable"].map(function (t) { return h("th", { scope: "col", text: t }); }))]), h("tbody", null, rows)])])]));
-    root.appendChild(h("div", { class: "panel" }, [
-      h("h2", { text: "Project management view (simulated)" }),
-      h("p", { class: "muted", text: "Planning artifacts exist in Notion, Jira and Confluence. The charter is not signed, the budget is an assumption and no money was spent." }),
-      h("ul", null, [
-        "Charter: purpose, objectives stated as targets, scope in and out, risks and five release gates.",
-        "Ideation: four options scored on pain points fixed, effort and testability. A lightweight request portal scored highest (judgment scores, not measurements).",
-        "Plan: seven phases, 29 planned hours. Budget: about 1,936 US dollars planned, mostly the value of the author's time. Actual cash spent: zero.",
-        "Variance: the build ran longer than planned after one unstable browser check and one incomplete deployment that had to be redone.",
-        "Research: a usability study protocol is written but has not been run. No user research results exist.",
-        "Analytics: nine anonymous events and five planned reports. Any counts in a dashboard come from simulated events unless a real visitor used the site."
-      ].map(function (t) { return h("li", { text: t }); }))
+    root.appendChild(sec("Summary", [
+      h("p", { text: "Employees at Northstar Studio, a 75-person company, ask IT, Facilities and HR for help through email and chat. Requests arrive incomplete, nobody knows who owns them, and department heads cannot see workload. ServiceFlow replaces that with one structured form, a named owner for every request, a visible status and a shared view of workload." }),
+      h("p", { text: "I defined the scope, wrote the requirements, planned the delivery, built and tested the product and set up the tooling to track it. The release is a working prototype, ready for a pilot with one real team." })
     ]));
-    root.appendChild(h("div", { class: "panel" }, [
-      h("h2", { text: "Architecture" }),
-      h("p", { text: "Buildless static site: index.html, styles.css, config.js, core.js, track.js and app.js. core.js holds validation, lifecycle rules, filtering, metrics, CSV and the sample data, with no browser dependencies, so it is tested directly in Node. app.js renders the views and handles dialogs, localStorage and downloads, and builds all user-supplied text with textContent so it is never parsed as HTML." }),
-      h("h2", { text: "Verification evidence" }),
-      h("p", { text: "Executed results are in QA_Evidence.md, Unit_Test_Results.txt and Static_Checks.txt below. They list what passed, what failed and what has not been run. The test evidence verifies the software against its written requirements. It does not validate that the tool helps real employees." }),
-      h("h2", { text: "Limitations" }),
-      h("ul", null, ["Records live in browser storage and can be edited or cleared by the user. They are not shared across browsers or devices.", "No authentication or authorization. Department filters and owners are labels, not permissions.", "The history is not tamper-proof and is not an audit trail.", "No email or notifications, no file uploads, no SLA enforcement.", "Resolution share is not SLA compliance. All numbers come from fictional demonstration records.", "Accessibility is designed for (labels, focus, text status) but conformance has not been tested.", "Hosted as a prototype only. There is no production service, monitoring or support rota."].map(function (t) { return h("li", { text: t }); }))
+    root.appendChild(sec("Problem and users", [
+      h("p", { text: "Three groups feel the problem differently." }),
+      table(["User", "Need", "What ServiceFlow gives them"], [
+        ["Employee", "Ask once and know what happens next.", "A short form with clear errors, then an owner and status they can see."],
+        ["Department owner", "Know what is waiting and who has it.", "Requests filtered by department, with owner and priority on each."],
+        ["Operations director", "See workload across IT, Facilities and HR.", "An overview of active, unassigned and high-priority requests by department."]
+      ])
     ]));
-    root.appendChild(h("div", { class: "panel" }, [h("h2", { text: "Supporting artifacts in the project package" }),
-      h("p", { class: "muted", text: "These files are supplied in the project package (delivery folder, plus the Word master delivery plan). They are listed here, not served from this hosted page. The Word plan and the handbook describe the same product." }),
+    root.appendChild(sec("Goals", [
+      ul(["Every request has a named owner before work starts.",
+        "Every request has a status that anyone can read: Open, In progress or Resolved.",
+        "Department heads can see active workload without asking.",
+        "The overview, the request list and the analytics always show the same numbers."])
+    ]));
+    root.appendChild(sec("Scope decisions", [
+      h("p", { text: "I prioritized with MoSCoW and held version 1 to what proves the core flow." }),
+      table(["Priority", "Included"], [
+        ["Must", "Validated request form, routing by department, owner and status rules, dated history, one shared set of records."],
+        ["Should", "Search and filters, analytics with defined metrics, CSV export that is safe to open in a spreadsheet."],
+        ["Not in version 1", "Sign-in, shared database, email notifications, file uploads, SLA enforcement, enterprise integrations."]
+      ]),
+      h("p", { class: "muted", text: "Leaving out sign-in and a shared database kept the release to one day of build and made it easy to put in front of users. They are the first items after the pilot." })
+    ]));
+    root.appendChild(sec("Key product decisions", [
+      ul(["An owner is required before a request moves to In progress, so work never starts unassigned (R03).",
+        "Owners come from a list per department, which avoids misrouted requests (R02).",
+        "Every owner and status change is recorded with a date, so the history explains the current state (R04).",
+        "Metrics are defined on the page: resolution share is not SLA compliance and average resolution time uses elapsed hours (R06).",
+        "Saved data is validated on load, and a visible warning appears when saving fails, so no one loses work silently (R07).",
+        "Free text is always rendered as text and exported with spreadsheet formulas neutralized (R08)."])
+    ]));
+    root.appendChild(sec("How the work was run", [
+      h("p", { text: "Delivery followed a charter, a short ideation round, a plan with five release gates and a risk log. Four options were scored on pain points fixed, effort and testability, and a lightweight request portal scored highest. Planned effort was 29 hours across seven phases." }),
+      table(["Tool", "Used for"], [
+        ["Notion", "Charter, ideation, plan and budget, usability study protocol, analytics plan."],
+        ["Jira", "Engineering backlog: 5 epics and 29 stories."],
+        ["Confluence", "Product and technical handbook."],
+        ["monday.com", "Cross-team tracker by release gate, G1 Define to G5 Release."],
+        ["Mixpanel", "Usage analytics: nine anonymous events and four reports."],
+        ["Vercel", "Hosting for the prototype."]
+      ])
+    ]));
+    root.appendChild(sec("Quality", [
+      h("p", { text: "Each requirement maps to at least one test. The suite has 26 unit tests of the business logic, 14 static checks and 23 browser checks, and all pass. Browser checks cover the form, keyboard use, a narrow phone screen and storage failure. Results are in the artifact list below." }),
+      h("p", { text: "Two lessons from the build. A browser check that failed intermittently was traced to timing and fixed instead of re-run until it passed. A first deployment was missing two files, so every release now ends with a file-hash check against the live site." })
+    ]));
+    root.appendChild(sec("Measurement", [
+      h("p", { text: "The hosted site records nine anonymous events with no request text: form opened, validation error, request submitted, owner assigned, status changed, request resolved, filter used, CSV exported and high-priority review clicked. They feed four Mixpanel reports: the request funnel, validation errors by field, time to assign an owner and status transitions." })
+    ]));
+    root.appendChild(sec("Risks and trade-offs", [
+      ul(["Records live in the browser, so they are not shared across devices. This is acceptable for a pilot with one team and is the first thing to replace.",
+        "Owners and department filters are labels, not permissions. Real access control needs sign-in.",
+        "Resolution share is a count of the current list. A real SLA view needs due dates and working-hour rules.",
+        "Accessibility was designed in with labels, focus handling and text on every status color. Conformance testing is still to do."])
+    ]));
+    root.appendChild(sec("Next steps", [
+      ol([
+        "Run the usability study with five employees from one department, using the written protocol.",
+        "Add sign-in and a shared database so a team can use the same records.",
+        "Add email notifications for assignment and resolution.",
+        "Define due dates and SLA rules with the department heads, then measure time to resolve against them."])
+    ]));
+    root.appendChild(h("div", { class: "panel" }, [h("h2", { text: "Project artifacts" }),
+      h("p", { class: "muted", text: "Open any file below. Jira, Confluence, Notion, monday.com and Mixpanel views are shared on request." }),
       h("ul", { class: "dl-grid" }, DOWNLOADS.map(function (d) {
-        return h("li", null, [h("strong", { text: d[0] }), h("small", { text: d[1] })]);
+        return h("li", null, [h("a", { href: "delivery/" + d[0], target: "_blank", rel: "noopener", text: d[0] }), h("small", { text: d[1] })]);
       }))]));
   };
 

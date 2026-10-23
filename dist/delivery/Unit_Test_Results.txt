@@ -2,157 +2,157 @@ TAP version 13
 # Subtest: 01 seed records are valid, unique and match the required distribution
 ok 1 - 01 seed records are valid, unique and match the required distribution
   ---
-  duration_ms: 6.313158
+  duration_ms: 4.694137
   type: 'test'
   ...
 # Subtest: 02 creating a request routes it, starts Open and Unassigned, and writes the first history entry
 ok 2 - 02 creating a request routes it, starts Open and Unassigned, and writes the first history entry
   ---
-  duration_ms: 0.682253
+  duration_ms: 0.594173
   type: 'test'
   ...
 # Subtest: 03 text is trimmed and blank or whitespace-only required fields are rejected
 ok 3 - 03 text is trimmed and blank or whitespace-only required fields are rejected
   ---
-  duration_ms: 0.381664
+  duration_ms: 0.371831
   type: 'test'
   ...
 # Subtest: 04 description must be 10 to 2000 characters after trimming
 ok 4 - 04 description must be 10 to 2000 characters after trimming
   ---
-  duration_ms: 0.196637
+  duration_ms: 0.180754
   type: 'test'
   ...
 # Subtest: 05 invalid departments, priorities and categories are rejected
 ok 5 - 05 invalid departments, priorities and categories are rejected
   ---
-  duration_ms: 0.420313
+  duration_ms: 0.333492
   type: 'test'
   ...
 # Subtest: 06 an owner is required before In progress or Resolved
 ok 6 - 06 an owner is required before In progress or Resolved
   ---
-  duration_ms: 0.387148
+  duration_ms: 0.513859
   type: 'test'
   ...
 # Subtest: 07 assignment and status transitions write dated history entries
 ok 7 - 07 assignment and status transitions write dated history entries
   ---
-  duration_ms: 0.642113
+  duration_ms: 0.31456
   type: 'test'
   ...
 # Subtest: 08 owners from another department are rejected
 ok 8 - 08 owners from another department are rejected
   ---
-  duration_ms: 0.490848
+  duration_ms: 0.210407
   type: 'test'
   ...
 # Subtest: 09 resolving sets resolvedAt, reopening clears it, resolving again records the new time
 ok 9 - 09 resolving sets resolvedAt, reopening clears it, resolving again records the new time
   ---
-  duration_ms: 0.841477
+  duration_ms: 0.448975
   type: 'test'
   ...
 # Subtest: 10 a save that changes nothing adds no history and keeps updatedAt
 ok 10 - 10 a save that changes nothing adds no history and keeps updatedAt
   ---
-  duration_ms: 0.699756
+  duration_ms: 0.387052
   type: 'test'
   ...
 # Subtest: 11 seed metrics reconcile: 8 active, 33.3 percent resolved, 20.25 hour average
 ok 11 - 11 seed metrics reconcile: 8 active, 33.3 percent resolved, 20.25 hour average
   ---
-  duration_ms: 0.580344
+  duration_ms: 0.438699
   type: 'test'
   ...
 # Subtest: 12 an empty dataset gives zeros and no invalid numbers
 ok 12 - 12 an empty dataset gives zeros and no invalid numbers
   ---
-  duration_ms: 0.224144
+  duration_ms: 0.189313
   type: 'test'
   ...
 # Subtest: 13 search combines with department, status and priority filters
 ok 13 - 13 search combines with department, status and priority filters
   ---
-  duration_ms: 1.919148
+  duration_ms: 1.35236
   type: 'test'
   ...
 # Subtest: 14 Active means Open plus In progress and the high-priority action excludes Resolved
 ok 14 - 14 Active means Open plus In progress and the high-priority action excludes Resolved
   ---
-  duration_ms: 0.379289
+  duration_ms: 0.381246
   type: 'test'
   ...
 # Subtest: 15 CSV escapes quotes, commas and line breaks and neutralizes formula characters
 ok 15 - 15 CSV escapes quotes, commas and line breaks and neutralizes formula characters
   ---
-  duration_ms: 0.672831
+  duration_ms: 0.56412
   type: 'test'
   ...
 # Subtest: 16 JSON round trip returns identical records
 ok 16 - 16 JSON round trip returns identical records
   ---
-  duration_ms: 0.751416
+  duration_ms: 0.722248
   type: 'test'
   ...
 # Subtest: 17 malformed saved data is rejected
 ok 17 - 17 malformed saved data is rejected
   ---
-  duration_ms: 2.735425
+  duration_ms: 2.502724
   type: 'test'
   ...
 # Subtest: 18 sequential creation yields unique increasing identifiers
 ok 18 - 18 sequential creation yields unique increasing identifiers
   ---
-  duration_ms: 0.841967
+  duration_ms: 0.482941
   type: 'test'
   ...
 # Subtest: 19 field-length boundaries accept the limits and reject one beyond
 ok 19 - 19 field-length boundaries accept the limits and reject one beyond
   ---
-  duration_ms: 0.288295
+  duration_ms: 0.174398
   type: 'test'
   ...
 # Subtest: 20 invalid statuses are rejected without changing the record
 ok 20 - 20 invalid statuses are rejected without changing the record
   ---
-  duration_ms: 0.223622
+  duration_ms: 0.183381
   type: 'test'
   ...
 # Subtest: 21 department workload summary is consistent with the directory data
 ok 21 - 21 department workload summary is consistent with the directory data
   ---
-  duration_ms: 0.231884
+  duration_ms: 0.184115
   type: 'test'
   ...
 # Subtest: 22 resolved time is never earlier than creation even if the clock moves backwards
 ok 22 - 22 resolved time is never earlier than creation even if the clock moves backwards
   ---
-  duration_ms: 0.329875
+  duration_ms: 0.115883
   type: 'test'
   ...
 # Subtest: 23 resolved-request average ignores unresolved records and uses the stored timestamps
 ok 23 - 23 resolved-request average ignores unresolved records and uses the stored timestamps
   ---
-  duration_ms: 0.189776
+  duration_ms: 0.119387
   type: 'test'
   ...
 # Subtest: U24 extended demo sample has 60 valid records with unique ids
 ok 24 - U24 extended demo sample has 60 valid records with unique ids
   ---
-  duration_ms: 2.426474
+  duration_ms: 2.071633
   type: 'test'
   ...
 # Subtest: U25 tracking sanitizer allows only known events and categorical properties
 ok 25 - U25 tracking sanitizer allows only known events and categorical properties
   ---
-  duration_ms: 1.279913
+  duration_ms: 0.863595
   type: 'test'
   ...
 # Subtest: U26 tracking does nothing without a configured token
 ok 26 - U26 tracking does nothing without a configured token
   ---
-  duration_ms: 0.247863
+  duration_ms: 0.185398
   type: 'test'
   ...
 1..26
@@ -163,4 +163,4 @@ ok 26 - U26 tracking does nothing without a configured token
 # cancelled 0
 # skipped 0
 # todo 0
-# duration_ms 132.074135
+# duration_ms 101.457886

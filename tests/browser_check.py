@@ -225,14 +225,17 @@ def b16(b):
     assert p.locator("#f-table img").count() == 0 and p.locator("#f-table b").count() == 0
     assert "<b>Bold Name</b>" in p.locator("#f-table").inner_text(); c.close()
 
-@check("B17 Delivery case study lists the supporting artifacts and states the limits")
+@check("B17 Delivery case study reads as a write-up and links every supporting artifact")
 def b17(b):
     c, p, errs = ctx(b); p.goto(BASE + "#case-study")
-    names = p.locator(".dl-grid li strong").all_inner_texts()
-    assert len(names) >= 11, len(names)
-    assert p.locator(".dl-grid a").count() == 0
+    links = p.locator(".dl-grid li a")
+    assert links.count() >= 11, links.count()
     t = p.locator("#view-case-study").inner_text()
-    assert "fictional" in t and "No stakeholder approved" in t and "project package" in t; c.close()
+    for word in ["Problem and users", "Scope decisions", "Quality", "Risks and trade-offs", "Next steps", "Project artifacts"]:
+        assert word in t, word
+    href = links.first.get_attribute("href")
+    r = p.request.get(f"http://localhost:{PORT}/" + href)
+    assert r.status == 200, (href, r.status); c.close()
 
 @check("B18 No console or page errors during a full walk through all four views")
 def b18(b):

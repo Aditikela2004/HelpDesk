@@ -14,7 +14,7 @@ PASS B13 Keyboard: open a request with Enter, focus starts in the dialog and nev
 PASS B14 Corrupted saved data: warning shown, demo data used, stored text untouched until a change
 PASS B15 Storage unavailable: clear warning, app still works in memory, CSV export offered
 PASS B16 User text is shown as text, not parsed as HTML
-PASS B17 Delivery case study lists the supporting artifacts and states the limits
+PASS B17 Delivery case study reads as a write-up and links every supporting artifact
 PASS B18 No console or page errors during a full walk through all four views
 PASS B19 Status colors are always accompanied by text labels
 PASS B20 Dark teal sidebar, main text and primary action colors match the design tokens

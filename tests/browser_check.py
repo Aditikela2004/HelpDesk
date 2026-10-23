@@ -275,7 +275,8 @@ def b22(b):
     p.route("**/config.js", cfg); p.route("https://api.mixpanel.com/**", mp)
     p.goto(BASE)
     p.get_by_role("link", name="Requests", exact=True).click()
-    p.get_by_role("button", name="New request").first.click()
+    p.locator("#view-requests").wait_for(state="visible")
+    p.locator("#view-requests").get_by_role("button", name="New request").click()
     p.get_by_role("button", name="Submit request").click()          # validation errors
     p.fill("#title", "Secret title text"); p.fill("#requester", "Private Person")
     p.select_option("#department", "IT"); p.select_option("#priority", "High"); p.select_option("#category", "Other")
@@ -285,11 +286,10 @@ def b22(b):
     p.select_option("#d-owner", "Marcus Webb"); p.select_option("#d-status", "In progress")
     p.get_by_role("button", name="Save changes").click()
     p.select_option("#d-status", "Resolved"); p.get_by_role("button", name="Save changes").click()
-    p.get_by_role("button", name="Close").first.click()
-    p.select_option("#f-dept", "IT") if p.locator("#f-dept").count() else None
-    with p.expect_download(): p.get_by_role("button", name="Export CSV").click()
+    p.locator("#dlg-detail").get_by_role("button", name="Close").first.click()
+    with p.expect_download(): p.locator("#view-requests").get_by_role("button", name="Export CSV").click()
     p.get_by_role("link", name="Overview", exact=True).click()
-    p.get_by_role("button", name="Review high-priority requests").click()
+    p.locator("#view-overview").get_by_role("button", name="Review high-priority requests").click()
     p.wait_for_timeout(800)
     names = [e["event"] for e in sent]
     for ev in ["request_form_opened", "request_validation_error", "request_submitted", "owner_assigned", "status_changed", "request_resolved", "csv_exported", "high_priority_review_clicked"]:

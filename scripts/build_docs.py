@@ -242,7 +242,8 @@ ServiceFlow is an AI-assisted independent portfolio project. This file says whic
 | Purpose | Single source of truth | Form in this project |
 |---|---|---|
 | Engineering backlog | Jira | Jira project SF (ServiceFlow, Scrum, team-managed) holds the 34 backlog items as 5 epics and 29 stories, plus synthetic demonstration activity. Engineering_Backlog.csv is the portable copy. |
-| Cross-functional tracker | monday.com layout | Delivery_Tracker.csv. See status below. |
+| Cross-functional tracker | monday.com layout | Delivery_Tracker.csv. A board could not be created (permission error). |
+| Charter, ideation, plan and budget | Notion | Private draft pages. Simulated and assumption-based; nothing signed or spent. |
 | Handbook | Confluence | Published in the Software Development space under a ServiceFlow Handbook page with child pages. Confluence_Handbook.md is the portable copy. |
 | Wireframes | Editable SVG | ServiceFlow_Wireframes.svg. No Figma file exists. |
 | Source | Git | Local repository in the project folder. |
@@ -250,8 +251,8 @@ ServiceFlow is an AI-assisted independent portfolio project. This file says whic
 
 ## Actually used
 
-- Vercel: project creation and deployment of the four app files, with deployment verification.
-- Git: local repository and commit.
+- Vercel: project creation and deployment of the six app files, with deployment verification by file hash.
+- Notion: private draft pages for the project charter, ideation, plan and budget, usability study protocol (written, not run) and analytics plan. The budget is an assumption; actual cash spent is zero.
 - Jira and Confluence (Atlassian): project SF with 34 issues and demonstration activity; handbook pages in the Software Development space. All people, roles, approvals and comments in them are simulated.
 - Mixpanel: instrumentation of the deployed demo, and synthetic demonstration events. Event data is not user research.
 - Local tools: Node (unit tests), Python with Playwright (browser checks), LibreOffice (rendering the Word plan for inspection).
@@ -260,7 +261,8 @@ ServiceFlow is an AI-assisted independent portfolio project. This file says whic
 
 - Figma: no Figma file was created. ServiceFlow_Wireframes.svg can be opened in Figma or any SVG editor.
 - Asana: not used.
-- monday.com: the account was reachable but empty; no board was created unless the final handoff says otherwise. Import Delivery_Tracker.csv into a new board to use it.
+- monday.com: the account was reachable, but board and doc creation were refused with a permission error (403). No board exists. Import Delivery_Tracker.csv into a new board to use it.
+- Amplitude: not used. Mixpanel is the analytics tool.
 
 ## Notes
 

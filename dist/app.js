@@ -271,8 +271,20 @@
     root.appendChild(h("div", { class: "panel" }, [h("h2", { text: "Role contributions (simulated)" }),
       h("div", { class: "table-wrap", tabindex: "0", role: "region", "aria-label": "Role contributions, scrollable" }, [h("table", null, [h("thead", null, [h("tr", null, ["Role", "Decision", "Deliverable"].map(function (t) { return h("th", { scope: "col", text: t }); }))]), h("tbody", null, rows)])])]));
     root.appendChild(h("div", { class: "panel" }, [
+      h("h2", { text: "Project management view (simulated)" }),
+      h("p", { class: "muted", text: "Planning artifacts exist in Notion, Jira and Confluence. The charter is not signed, the budget is an assumption and no money was spent." }),
+      h("ul", null, [
+        "Charter: purpose, objectives stated as targets, scope in and out, risks and five release gates.",
+        "Ideation: four options scored on pain points fixed, effort and testability. A lightweight request portal scored highest (judgment scores, not measurements).",
+        "Plan: seven phases, 29 planned hours. Budget: about 1,936 US dollars planned, mostly the value of the author's time. Actual cash spent: zero.",
+        "Variance: the build ran longer than planned after one unstable browser check and one incomplete deployment that had to be redone.",
+        "Research: a usability study protocol is written but has not been run. No user research results exist.",
+        "Analytics: nine anonymous events and five planned reports. Any counts in a dashboard come from simulated events unless a real visitor used the site."
+      ].map(function (t) { return h("li", { text: t }); }))
+    ]));
+    root.appendChild(h("div", { class: "panel" }, [
       h("h2", { text: "Architecture" }),
-      h("p", { text: "Buildless static site: index.html, styles.css, core.js and app.js. core.js holds validation, lifecycle rules, filtering, metrics, CSV and the sample data, with no browser dependencies, so it is tested directly in Node. app.js renders the views and handles dialogs, localStorage and downloads, and builds all user-supplied text with textContent so it is never parsed as HTML." }),
+      h("p", { text: "Buildless static site: index.html, styles.css, config.js, core.js, track.js and app.js. core.js holds validation, lifecycle rules, filtering, metrics, CSV and the sample data, with no browser dependencies, so it is tested directly in Node. app.js renders the views and handles dialogs, localStorage and downloads, and builds all user-supplied text with textContent so it is never parsed as HTML." }),
       h("h2", { text: "Verification evidence" }),
       h("p", { text: "Executed results are in QA_Evidence.md, Unit_Test_Results.txt and Static_Checks.txt below. They list what passed, what failed and what has not been run. The test evidence verifies the software against its written requirements. It does not validate that the tool helps real employees." }),
       h("h2", { text: "Limitations" }),

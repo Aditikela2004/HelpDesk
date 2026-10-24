@@ -1,6 +1,6 @@
-# ServiceFlow
+# HelpDesk
 
-**Simulated case study.** Northstar Studio, its people, the brief, stakeholder feedback, sample Jira comments and any Mixpanel events loaded from `scripts/send_demo_events.py` are fictional or synthetic. No client or stakeholder approved this work. No user research was done, and no adoption, savings or production results exist. A usability study protocol is written but has not been run.
+**Simulated case study.** HelpDesk Studio, its people, the brief, stakeholder feedback, sample Jira comments and any Mixpanel events loaded from `scripts/send_demo_events.py` are fictional or synthetic. No client or stakeholder approved this work. No user research was done, and no adoption, savings or production results exist. A usability study protocol is written but has not been run.
 
 AI-assisted independent portfolio project. An employee service request portal for the fictional company Northstar Studio. Synthetic data only. Not a production system; do not enter real or confidential information.
 

@@ -3,7 +3,7 @@ Stakeholder brief and pain points,Product,Product Manager,G1 Define,Done,Brief s
 "Charter, scope, MoSCoW",Product,Project Manager,G1 Define,Done,Handbook 3
 Requirements R01 to R10 and rules,Analysis,Business Analyst,G1 Define,Done,Requirements_Traceability.csv
 Information architecture and flows,Design,UI/UX Designer,G2 Design,Done,Handbook 6
-"Wireframes (Overview, Create, Detail)",Design,UI/UX Designer,G2 Design,Done,ServiceFlow_Wireframes.svg
+"Wireframes (Overview, Create, Detail)",Design,UI/UX Designer,G2 Design,Done,HelpDesk_Wireframes.svg
 Design tokens and component states,Design,Visual Designer,G2 Design,Done,Handbook 6
 Core logic module,Engineering,Developer,G3 Build,Done,dist/core.js
 Interface,Engineering,Developer,G3 Build,Done,"dist/app.js, styles.css"

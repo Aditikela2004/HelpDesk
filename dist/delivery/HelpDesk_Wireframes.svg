@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 2000" width="1200" height="2000" font-family="system-ui, sans-serif" font-size="14">
+<title>HelpDesk wireframes</title><desc>Editable low-fidelity wireframes for Overview, Create Request and Request Detail. Not a Figma file.</desc>
+<rect width="1200" height="2000" fill="#f6f7f9"/>
+<text x="40" y="46" font-size="20" fill="#19272e" font-weight="700">1. Overview</text>
+<rect x="40" y="60" width="1120" height="600" rx="12" fill="#fff" stroke="#9aa5ad"/>
+<rect x="40" y="60" width="220" height="600" rx="12" fill="#14272e" stroke="#14272e"/>
+<text x="64" y="100" font-size="18" fill="#fff" font-weight="700">HelpDesk</text>
+<text x="64" y="150" font-size="14" fill="#dfe7ea" font-weight="400">Overview</text>
+<text x="64" y="186" font-size="14" fill="#dfe7ea" font-weight="400">Requests</text>
+<text x="64" y="222" font-size="14" fill="#dfe7ea" font-weight="400">Analytics</text>
+<text x="64" y="258" font-size="14" fill="#dfe7ea" font-weight="400">Delivery case study</text>
+<rect x="280" y="76" width="860" height="36" rx="6" fill="#fff1d6" stroke="#e0b45c"/>
+<text x="294" y="99" font-size="13" fill="#6b4400" font-weight="400">Portfolio prototype: fictional data, stored in this browser only.</text>
+<rect x="280" y="132" width="160" height="80" rx="8" fill="#fff" stroke="#c9d0d6"/>
+<text x="292" y="160" font-size="12" fill="#5a6770" font-weight="400">Total</text>
+<text x="292" y="194" font-size="24" fill="#19272e" font-weight="700">12</text>
+<rect x="452" y="132" width="160" height="80" rx="8" fill="#fff" stroke="#c9d0d6"/>
+<text x="464" y="160" font-size="12" fill="#5a6770" font-weight="400">Active</text>
+<text x="464" y="194" font-size="24" fill="#19272e" font-weight="700">8</text>
+<rect x="624" y="132" width="160" height="80" rx="8" fill="#fff" stroke="#c9d0d6"/>
+<text x="636" y="160" font-size="12" fill="#5a6770" font-weight="400">High-priority active</text>
+<text x="636" y="194" font-size="24" fill="#19272e" font-weight="700">2</text>
+<rect x="796" y="132" width="160" height="80" rx="8" fill="#fff" stroke="#c9d0d6"/>
+<text x="808" y="160" font-size="12" fill="#5a6770" font-weight="400">Resolution share</text>
+<text x="808" y="194" font-size="24" fill="#19272e" font-weight="700">33.3%</text>
+<rect x="968" y="132" width="160" height="80" rx="8" fill="#fff" stroke="#c9d0d6"/>
+<text x="980" y="160" font-size="12" fill="#5a6770" font-weight="400">Avg resolution</text>
+<text x="980" y="194" font-size="24" fill="#19272e" font-weight="700">20.25 h</text>
+<rect x="280" y="228" width="860" height="56" rx="8" fill="#fde0de" stroke="#d98b85"/>
+<text x="296" y="252" font-size="14" fill="#8a1f17" font-weight="700">2 active high-priority requests</text>
+<rect x="900" y="240" width="224" height="32" rx="6" fill="#305bd8" stroke="#305bd8"/>
+<text x="916" y="261" font-size="12" fill="#fff" font-weight="400">Review high-priority requests</text>
+<text x="280" y="316" font-size="16" fill="#19272e" font-weight="700">Recent requests</text>
+<rect x="280" y="330" width="540" height="30" rx="8" fill="#fff" stroke="#c9d0d6"/>
+<text x="292" y="350" font-size="12" fill="#5a6770" font-weight="400">SF-#### | Title | Department | [Status]</text>
+<rect x="280" y="364" width="540" height="30" rx="8" fill="#fff" stroke="#c9d0d6"/>
+<text x="292" y="384" font-size="12" fill="#5a6770" font-weight="400">SF-#### | Title | Department | [Status]</text>
+<rect x="280" y="398" width="540" height="30" rx="8" fill="#fff" stroke="#c9d0d6"/>
+<text x="292" y="418" font-size="12" fill="#5a6770" font-weight="400">SF-#### | Title | Department | [Status]</text>
+<rect x="280" y="432" width="540" height="30" rx="8" fill="#fff" stroke="#c9d0d6"/>
+<text x="292" y="452" font-size="12" fill="#5a6770" font-weight="400">SF-#### | Title | Department | [Status]</text>
+<rect x="280" y="466" width="540" height="30" rx="8" fill="#fff" stroke="#c9d0d6"/>
+<text x="292" y="486" font-size="12" fill="#5a6770" font-weight="400">SF-#### | Title | Department | [Status]</text>
+<text x="840" y="316" font-size="16" fill="#19272e" font-weight="700">Workload by department</text>
+<rect x="840" y="330" width="300" height="38" rx="8" fill="#fff" stroke="#c9d0d6"/>
+<text x="852" y="354" font-size="12" fill="#5a6770" font-weight="400">IT: Open / In progress / Resolved</text>
+<rect x="840" y="374" width="300" height="38" rx="8" fill="#fff" stroke="#c9d0d6"/>
+<text x="852" y="398" font-size="12" fill="#5a6770" font-weight="400">Facilities: Open / In progress / Resolved</text>
+<rect x="840" y="418" width="300" height="38" rx="8" fill="#fff" stroke="#c9d0d6"/>
+<text x="852" y="442" font-size="12" fill="#5a6770" font-weight="400">HR: Open / In progress / Resolved</text>
+<text x="40" y="706" font-size="20" fill="#19272e" font-weight="700">2. Create request</text>
+<rect x="40" y="720" width="1120" height="600" rx="12" fill="#fff" stroke="#9aa5ad"/>
+<rect x="40" y="720" width="220" height="600" rx="12" fill="#14272e" stroke="#14272e"/>
+<text x="64" y="760" font-size="18" fill="#fff" font-weight="700">HelpDesk</text>
+<text x="64" y="810" font-size="14" fill="#dfe7ea" font-weight="400">Overview</text>
+<text x="64" y="846" font-size="14" fill="#dfe7ea" font-weight="400">Requests</text>
+<text x="64" y="882" font-size="14" fill="#dfe7ea" font-weight="400">Analytics</text>
+<text x="64" y="918" font-size="14" fill="#dfe7ea" font-weight="400">Delivery case study</text>
+<rect x="280" y="736" width="860" height="36" rx="6" fill="#fff1d6" stroke="#e0b45c"/>
+<text x="294" y="759" font-size="13" fill="#6b4400" font-weight="400">Portfolio prototype: fictional data, stored in this browser only.</text>
+<rect x="480" y="790" width="440" height="500" rx="12" fill="#fff" stroke="#305bd8"/>
+<text x="500" y="824" font-size="18" fill="#19272e" font-weight="700">New request</text>
+<text x="500" y="844" font-size="12" fill="#5a6770" font-weight="400">Title</text>
+<rect x="500" y="852" width="400" height="34" rx="8" fill="#fff" stroke="#c9d0d6"/>
+<text x="500" y="906" font-size="12" fill="#5a6770" font-weight="400">Requester</text>
+<rect x="500" y="914" width="400" height="34" rx="8" fill="#fff" stroke="#c9d0d6"/>
+<text x="500" y="968" font-size="12" fill="#5a6770" font-weight="400">Department (IT / Facilities / HR)</text>
+<rect x="500" y="976" width="400" height="34" rx="8" fill="#fff" stroke="#c9d0d6"/>
+<text x="500" y="1030" font-size="12" fill="#5a6770" font-weight="400">Priority (High / Normal / Low)</text>
+<rect x="500" y="1038" width="400" height="34" rx="8" fill="#fff" stroke="#c9d0d6"/>
+<text x="500" y="1092" font-size="12" fill="#5a6770" font-weight="400">Category</text>
+<rect x="500" y="1100" width="400" height="34" rx="8" fill="#fff" stroke="#c9d0d6"/>
+<text x="500" y="1154" font-size="12" fill="#5a6770" font-weight="400">Description</text>
+<rect x="500" y="1162" width="400" height="60" rx="8" fill="#fff" stroke="#c9d0d6"/>
+<text x="500" y="1240" font-size="11" fill="#8a1f17" font-weight="400">Field errors appear under each field. Focus moves to the first error.</text>
+<rect x="700" y="1250" width="90" height="30" rx="8" fill="#fff" stroke="#c9d0d6"/>
+<text x="722" y="1270" font-size="13" fill="#19272e" font-weight="400">Cancel</text>
+<rect x="800" y="1250" width="100" height="30" rx="6" fill="#305bd8" stroke="#305bd8"/>
+<text x="822" y="1270" font-size="13" fill="#fff" font-weight="400">Submit</text>
+<text x="40" y="1366" font-size="20" fill="#19272e" font-weight="700">3. Request detail</text>
+<rect x="40" y="1380" width="1120" height="600" rx="12" fill="#fff" stroke="#9aa5ad"/>
+<rect x="40" y="1380" width="220" height="600" rx="12" fill="#14272e" stroke="#14272e"/>
+<text x="64" y="1420" font-size="18" fill="#fff" font-weight="700">HelpDesk</text>
+<text x="64" y="1470" font-size="14" fill="#dfe7ea" font-weight="400">Overview</text>
+<text x="64" y="1506" font-size="14" fill="#dfe7ea" font-weight="400">Requests</text>
+<text x="64" y="1542" font-size="14" fill="#dfe7ea" font-weight="400">Analytics</text>
+<text x="64" y="1578" font-size="14" fill="#dfe7ea" font-weight="400">Delivery case study</text>
+<rect x="280" y="1396" width="860" height="36" rx="6" fill="#fff1d6" stroke="#e0b45c"/>
+<text x="294" y="1419" font-size="13" fill="#6b4400" font-weight="400">Portfolio prototype: fictional data, stored in this browser only.</text>
+<rect x="480" y="1450" width="440" height="500" rx="12" fill="#fff" stroke="#305bd8"/>
+<text x="500" y="1484" font-size="18" fill="#19272e" font-weight="700">SF-#### Title</text>
+<text x="500" y="1510" font-size="12" fill="#5a6770" font-weight="400">[Status badge]  [Priority badge]  Department</text>
+<rect x="500" y="1526" width="400" height="60" rx="8" fill="#f6f7f9" stroke="#c9d0d6"/>
+<text x="512" y="1550" font-size="12" fill="#5a6770" font-weight="400">Description and requester</text>
+<text x="500" y="1616" font-size="12" fill="#5a6770" font-weight="400">Owner</text>
+<rect x="500" y="1624" width="190" height="34" rx="8" fill="#fff" stroke="#c9d0d6"/>
+<text x="700" y="1616" font-size="12" fill="#5a6770" font-weight="400">Status</text>
+<rect x="700" y="1624" width="200" height="34" rx="8" fill="#fff" stroke="#c9d0d6"/>
+<rect x="500" y="1672" width="100" height="30" rx="6" fill="#305bd8" stroke="#305bd8"/>
+<text x="528" y="1692" font-size="13" fill="#fff" font-weight="400">Save</text>
+<text x="500" y="1736" font-size="14" fill="#19272e" font-weight="700">History</text>
+<rect x="500" y="1748" width="400" height="30" rx="8" fill="#fff" stroke="#c9d0d6"/>
+<text x="512" y="1768" font-size="11" fill="#5a6770" font-weight="400">Date time - Assigned to X. / Status changed from ... to ...</text>
+<rect x="500" y="1784" width="400" height="30" rx="8" fill="#fff" stroke="#c9d0d6"/>
+<text x="512" y="1804" font-size="11" fill="#5a6770" font-weight="400">Date time - Assigned to X. / Status changed from ... to ...</text>
+<rect x="500" y="1820" width="400" height="30" rx="8" fill="#fff" stroke="#c9d0d6"/>
+<text x="512" y="1840" font-size="11" fill="#5a6770" font-weight="400">Date time - Assigned to X. / Status changed from ... to ...</text>
+<rect x="500" y="1856" width="400" height="30" rx="8" fill="#fff" stroke="#c9d0d6"/>
+<text x="512" y="1876" font-size="11" fill="#5a6770" font-weight="400">Date time - Assigned to X. / Status changed from ... to ...</text>
+</svg>

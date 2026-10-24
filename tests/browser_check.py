@@ -1,4 +1,4 @@
-"""Browser checks for ServiceFlow using Playwright (Chromium). Run: python3 tests/browser_check.py <port>
+"""Browser checks for HelpDesk using Playwright (Chromium). Run: python3 tests/browser_check.py <port>
 Serves nothing itself; start a static server for dist/ first. Prints one PASS/FAIL line per check."""
 import re, sys, time
 from playwright.sync_api import sync_playwright

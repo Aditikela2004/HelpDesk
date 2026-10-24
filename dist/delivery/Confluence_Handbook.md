@@ -1,10 +1,10 @@
-# ServiceFlow Handbook
+# HelpDesk Handbook
 
 AI-assisted independent portfolio project. The fictional client is Northstar Studio, about 75 employees. All people, departments, data and approvals are simulated. Nothing here records a real approval, interview, survey, adoption or saving.
 
 ## 1. Purpose and scope
 
-ServiceFlow is a small employee service request portal. Employees submit a request to IT, Facilities or HR. Coordinators assign an owner and move the request through Open, In progress and Resolved. Leaders see workload and a few defined metrics. It runs in the browser from static files and saves to localStorage. It is a prototype for demonstration with synthetic data only.
+HelpDesk is a small employee service request portal. Employees submit a request to IT, Facilities or HR. Coordinators assign an owner and move the request through Open, In progress and Resolved. Leaders see workload and a few defined metrics. It runs in the browser from static files and saves to localStorage. It is a prototype for demonstration with synthetic data only.
 
 Out of scope for version 1: sign-in and roles, notifications, file uploads, SLA enforcement, shared database or integrations. See the Won't items in the backlog.
 
@@ -215,7 +215,7 @@ Review: Overview, Review high-priority requests, filtered list.
 
 ### Wireframes
 
-ServiceFlow_Wireframes.svg holds low-fidelity wireframes for Overview, Create request and Request detail. It is an editable SVG. There is no Figma file.
+HelpDesk_Wireframes.svg holds low-fidelity wireframes for Overview, Create request and Request detail. It is an editable SVG. There is no Figma file.
 
 ### Design tokens
 
@@ -245,7 +245,7 @@ ServiceFlow_Wireframes.svg holds low-fidelity wireframes for Overview, Create re
 | New request dialog | Empty, validation error per field, success (dialog closes, toast confirms) |
 | Request detail dialog | Viewing, saved, no changes, error (owner required or invalid) |
 | Storage warning | Hidden, unreadable data, storage unavailable, save failed |
-| Loading | A single 'Loading ServiceFlow' line until the first render; no spinners because data is local |
+| Loading | A single 'Loading HelpDesk' line until the first render; no spinners because data is local |
 
 ### Responsive and accessibility intent
 
@@ -314,7 +314,7 @@ Resolution share is not SLA compliance. Average resolution time is elapsed clock
 
 ### Product analytics instrumentation
 
-ServiceFlow can send anonymous usage events to Mixpanel through track.js. Tracking is off unless config.js carries a project token; the source and the project package keep that value empty, and only the deployed copy sets it. Nine events are defined: request_form_opened, request_submitted, request_validation_error, owner_assigned, status_changed, request_resolved, filter_used, csv_exported and high_priority_review_clicked. Properties are limited to department, priority, category, status, previous status, the name of the field that failed validation, the filter type, hours to resolve and a record count. Titles, requester names, descriptions and owner names are never sent, autocapture is not used, and the browser's Do Not Track setting turns tracking off. Unit tests U25 and U26 and browser checks B21 and B22 verify these limits. Any event volume shown in a dashboard is synthetic demonstration data unless a real reviewer used the site, and it is not evidence of adoption.
+HelpDesk can send anonymous usage events to Mixpanel through track.js. Tracking is off unless config.js carries a project token; the source and the project package keep that value empty, and only the deployed copy sets it. Nine events are defined: request_form_opened, request_submitted, request_validation_error, owner_assigned, status_changed, request_resolved, filter_used, csv_exported and high_priority_review_clicked. Properties are limited to department, priority, category, status, previous status, the name of the field that failed validation, the filter type, hours to resolve and a record count. Titles, requester names, descriptions and owner names are never sent, autocapture is not used, and the browser's Do Not Track setting turns tracking off. Unit tests U25 and U26 and browser checks B21 and B22 verify these limits. Any event volume shown in a dashboard is synthetic demonstration data unless a real reviewer used the site, and it is not evidence of adoption.
 
 ### Extended sample data
 

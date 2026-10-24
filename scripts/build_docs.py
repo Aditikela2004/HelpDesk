@@ -47,7 +47,7 @@ TRACK = [
  ("Charter, scope, MoSCoW","Product","Project Manager","G1 Define","Done","Handbook 3"),
  ("Requirements R01 to R10 and rules","Analysis","Business Analyst","G1 Define","Done","Requirements_Traceability.csv"),
  ("Information architecture and flows","Design","UI/UX Designer","G2 Design","Done","Handbook 6"),
- ("Wireframes (Overview, Create, Detail)","Design","UI/UX Designer","G2 Design","Done","ServiceFlow_Wireframes.svg"),
+ ("Wireframes (Overview, Create, Detail)","Design","UI/UX Designer","G2 Design","Done","HelpDesk_Wireframes.svg"),
  ("Design tokens and component states","Design","Visual Designer","G2 Design","Done","Handbook 6"),
  ("Core logic module","Engineering","Developer","G3 Build","Done","dist/core.js"),
  ("Interface","Engineering","Developer","G3 Build","Done","dist/app.js, styles.css"),
@@ -74,7 +74,7 @@ w("Sample_Requests.csv", seed_csv)
 def svg():
     W, H = 1200, 2000
     o = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" font-family="system-ui, sans-serif" font-size="14">',
-         '<title>ServiceFlow wireframes</title><desc>Editable low-fidelity wireframes for Overview, Create Request and Request Detail. Not a Figma file.</desc>',
+         '<title>HelpDesk wireframes</title><desc>Editable low-fidelity wireframes for Overview, Create Request and Request Detail. Not a Figma file.</desc>',
          f'<rect width="{W}" height="{H}" fill="#f6f7f9"/>']
     def rect(x,y,wd,h,fill="#fff",stroke="#c9d0d6",r=8): o.append(f'<rect x="{x}" y="{y}" width="{wd}" height="{h}" rx="{r}" fill="{fill}" stroke="{stroke}"/>')
     def text(x,y,t,size=14,fill="#19272e",weight="400"): o.append(f'<text x="{x}" y="{y}" font-size="{size}" fill="{fill}" font-weight="{weight}">{t}</text>')
@@ -82,7 +82,7 @@ def svg():
         text(40,y-14,title,20,weight="700")
         rect(40,y,1120,600,"#fff","#9aa5ad",12)
         rect(40,y,220,600,"#14272e","#14272e",12)
-        text(64,y+40,"ServiceFlow",18,"#fff","700")
+        text(64,y+40,"HelpDesk",18,"#fff","700")
         for i,n in enumerate(["Overview","Requests","Analytics","Delivery case study"]):
             text(64,y+90+i*36,n,14,"#dfe7ea")
         rect(280,y+16,860,36,"#fff1d6","#e0b45c",6); text(294,y+39,"Portfolio prototype: fictional data, stored in this browser only.",13,"#6b4400")
@@ -114,16 +114,16 @@ def svg():
     for i in range(4): rect(500,y+368+i*36,400,30,"#fff"); text(512,y+388+i*36,"Date time - Assigned to X. / Status changed from ... to ...",11,"#5a6770")
     o.append("</svg>")
     return "\n".join(o)
-w("ServiceFlow_Wireframes.svg", svg())
+w("HelpDesk_Wireframes.svg", svg())
 
 # ---- handbook markdown (single source for docx too)
 def handbook():
     M = []
     a = M.append
-    a("# ServiceFlow Handbook\n")
+    a("# HelpDesk Handbook\n")
     a(f"AI-assisted independent portfolio project. The fictional client is {COMPANY}, about 75 employees. All people, departments, data and approvals are simulated. Nothing here records a real approval, interview, survey, adoption or saving.\n")
     a("## 1. Purpose and scope\n")
-    a("ServiceFlow is a small employee service request portal. Employees submit a request to IT, Facilities or HR. Coordinators assign an owner and move the request through Open, In progress and Resolved. Leaders see workload and a few defined metrics. It runs in the browser from static files and saves to localStorage. It is a prototype for demonstration with synthetic data only.\n")
+    a("HelpDesk is a small employee service request portal. Employees submit a request to IT, Facilities or HR. Coordinators assign an owner and move the request through Open, In progress and Resolved. Leaders see workload and a few defined metrics. It runs in the browser from static files and saves to localStorage. It is a prototype for demonstration with synthetic data only.\n")
     a("Out of scope for version 1: sign-in and roles, notifications, file uploads, SLA enforcement, shared database or integrations. See the Won't items in the backlog.\n")
     a("## 2. Stakeholder brief and pain points\n")
     a("Simulated sponsor brief: requests reach IT, Facilities and HR through email and chat. People do not know who owns a request or what state it is in, and department heads lack a shared view of workload.\n")
@@ -175,7 +175,7 @@ def handbook():
     a("### Flows\n")
     a("Submit: Requests or Overview, New request, fill fields, Submit, toast, request appears Open and Unassigned.\nAssign and resolve: Requests, open a row, choose owner, set status, Save, history updates.\nReview: Overview, Review high-priority requests, filtered list.\n")
     a("### Wireframes\n")
-    a("ServiceFlow_Wireframes.svg holds low-fidelity wireframes for Overview, Create request and Request detail. It is an editable SVG. There is no Figma file.\n")
+    a("HelpDesk_Wireframes.svg holds low-fidelity wireframes for Overview, Create request and Request detail. It is an editable SVG. There is no Figma file.\n")
     a("### Design tokens\n")
     a(md_table(["Token","Value","Use"], TOKENS))
     a("### Component states\n")
@@ -203,7 +203,7 @@ def handbook():
     a("### Interpretation limits\n")
     a("Resolution share is not SLA compliance. Average resolution time is elapsed clock time for currently resolved requests, not working hours. Twelve seeded records cannot show trends or support statistical claims.\n")
     a("### Product analytics instrumentation\n")
-    a("ServiceFlow can send anonymous usage events to Mixpanel through track.js. Tracking is off unless config.js carries a project token; the source and the project package keep that value empty, and only the deployed copy sets it. Nine events are defined: request_form_opened, request_submitted, request_validation_error, owner_assigned, status_changed, request_resolved, filter_used, csv_exported and high_priority_review_clicked. Properties are limited to department, priority, category, status, previous status, the name of the field that failed validation, the filter type, hours to resolve and a record count. Titles, requester names, descriptions and owner names are never sent, autocapture is not used, and the browser's Do Not Track setting turns tracking off. Unit tests U25 and U26 and browser checks B21 and B22 verify these limits. Any event volume shown in a dashboard is synthetic demonstration data unless a real reviewer used the site, and it is not evidence of adoption.\n")
+    a("HelpDesk can send anonymous usage events to Mixpanel through track.js. Tracking is off unless config.js carries a project token; the source and the project package keep that value empty, and only the deployed copy sets it. Nine events are defined: request_form_opened, request_submitted, request_validation_error, owner_assigned, status_changed, request_resolved, filter_used, csv_exported and high_priority_review_clicked. Properties are limited to department, priority, category, status, previous status, the name of the field that failed validation, the filter type, hours to resolve and a record count. Titles, requester names, descriptions and owner names are never sent, autocapture is not used, and the browser's Do Not Track setting turns tracking off. Unit tests U25 and U26 and browser checks B21 and B22 verify these limits. Any event volume shown in a dashboard is synthetic demonstration data unless a real reviewer used the site, and it is not evidence of adoption.\n")
     a("### Extended sample data\n")
     a("The Requests view can load an extended sample of 60 synthetic records (the 12 seed records plus 48 generated ones). The generator is deterministic and the records pass the same validation as real input. The seed metrics above refer to the default 12 records only. Unit test U24 and browser check B23 cover the extended sample.\n")
     a("### Baseline and pilot plan (not run)\n")
@@ -235,17 +235,17 @@ w("Confluence_Handbook.md", handbook())
 # ---- Tool mapping
 TOOLMAP = """# Tool mapping
 
-ServiceFlow is an AI-assisted independent portfolio project. This file says which tools were actually used and which have only a portable file for later import.
+HelpDesk is an AI-assisted independent portfolio project. This file says which tools were actually used and which have only a portable file for later import.
 
 ## Source-of-truth choices
 
 | Purpose | Single source of truth | Form in this project |
 |---|---|---|
-| Engineering backlog | Jira | Jira project SF (ServiceFlow, Scrum, team-managed) holds the 34 backlog items as 5 epics and 29 stories, plus synthetic demonstration activity. Engineering_Backlog.csv is the portable copy. |
+| Engineering backlog | Jira | Jira project SF (HelpDesk, Scrum, team-managed) holds the 34 backlog items as 5 epics and 29 stories, plus synthetic demonstration activity. Engineering_Backlog.csv is the portable copy. |
 | Cross-functional tracker | monday.com layout | Delivery_Tracker.csv. A board could not be created (permission error). |
 | Charter, ideation, plan and budget | Notion | Private draft pages. Simulated and assumption-based; nothing signed or spent. |
-| Handbook | Confluence | Published in the Software Development space under a ServiceFlow Handbook page with child pages. Confluence_Handbook.md is the portable copy. |
-| Wireframes | Editable SVG | ServiceFlow_Wireframes.svg. No Figma file exists. |
+| Handbook | Confluence | Published in the Software Development space under a HelpDesk Handbook page with child pages. Confluence_Handbook.md is the portable copy. |
+| Wireframes | Editable SVG | HelpDesk_Wireframes.svg. No Figma file exists. |
 | Source | Git | Local repository in the project folder. |
 | Hosting | Vercel | Private static deployment of the app files only (index.html, styles.css, config.js, core.js, track.js, app.js). The deployed config.js sets the analytics token; the source copy keeps it empty. Delivery artifacts are in the project package, not hosted. |
 
@@ -259,7 +259,7 @@ ServiceFlow is an AI-assisted independent portfolio project. This file says whic
 
 ## Not used, portable file only
 
-- Figma: no Figma file was created. ServiceFlow_Wireframes.svg can be opened in Figma or any SVG editor.
+- Figma: no Figma file was created. HelpDesk_Wireframes.svg can be opened in Figma or any SVG editor.
 - Asana: not used.
 - monday.com: the account was reachable, but board and doc creation were refused with a permission error (403). No board exists. Import Delivery_Tracker.csv into a new board to use it.
 - Amplitude: not used. Mixpanel is the analytics tool.

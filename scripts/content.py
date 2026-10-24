@@ -1,4 +1,4 @@
-# Single source of truth for ServiceFlow documentation. Everything here is fictional or simulated unless marked otherwise.
+# Single source of truth for HelpDesk documentation. Everything here is fictional or simulated unless marked otherwise.
 COMPANY = "Northstar Studio"
 
 ROLES = [
@@ -26,7 +26,7 @@ DOWNLOADS = [
  ("Engineering_Backlog.csv", "Engineering backlog (Jira import layout)"),
  ("Delivery_Tracker.csv", "Cross-functional delivery tracker (monday.com layout)"),
  ("Requirements_Traceability.csv", "Need to requirement to test to release disposition"),
- ("ServiceFlow_Wireframes.svg", "Editable SVG wireframes"),
+ ("HelpDesk_Wireframes.svg", "Editable SVG wireframes"),
  ("Sample_Requests.csv", "The 12 demonstration records as CSV"),
  ("Tool_Mapping.md", "Which tool holds what, and what was actually used"),
  ("QA_Evidence.md", "Executed test evidence, gaps and release recommendation"),
@@ -241,7 +241,7 @@ STATES = [
  ("New request dialog","Empty, validation error per field, success (dialog closes, toast confirms)"),
  ("Request detail dialog","Viewing, saved, no changes, error (owner required or invalid)"),
  ("Storage warning","Hidden, unreadable data, storage unavailable, save failed"),
- ("Loading","A single 'Loading ServiceFlow' line until the first render; no spinners because data is local"),
+ ("Loading","A single 'Loading HelpDesk' line until the first render; no spinners because data is local"),
 ]
 
 ENVS = [

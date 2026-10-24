@@ -1,4 +1,4 @@
-/* ServiceFlow core logic. No DOM access. Works in Node (CommonJS) and in the browser (window.ServiceFlowCore). */
+/* HelpDesk core logic. No DOM access. Works in Node (CommonJS) and in the browser (window.HelpDeskCore). */
 (function (root) {
   "use strict";
 
@@ -367,5 +367,5 @@
     seedRequests: seedRequests, ownerLabel: ownerLabel
   };
   if (typeof module !== "undefined" && module.exports) module.exports = api;
-  else root.ServiceFlowCore = api;
+  else root.HelpDeskCore = api;
 })(typeof window !== "undefined" ? window : this);

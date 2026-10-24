@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Send SIMULATED ServiceFlow usage events to Mixpanel so the dashboard has something to show.
+"""Send SIMULATED HelpDesk usage events to Mixpanel so the dashboard has something to show.
 
 Every event carries demo=true and data_source="simulated". These are not real user results.
 Run it from your own machine (the project's sandbox cannot reach api.mixpanel.com):
@@ -30,7 +30,7 @@ def build(seed=20261022, sessions=60):
 
         def ev(name, dt, **props):
             events.append({"event": name, "properties": dict(
-                props, distinct_id=uid, time=t + dt, app="ServiceFlow", demo=True,
+                props, distinct_id=uid, time=t + dt, app="HelpDesk", demo=True,
                 data_source="simulated", **{"$insert_id": "demo-%d-%s-%d" % (n, name, dt)})})
 
         dep = rnd.choice(DEPTS)

@@ -1,4 +1,4 @@
-/* ServiceFlow product analytics (Mixpanel, HTTP API). Off unless window.SF_CONFIG.mixpanelToken is set.
+/* HelpDesk product analytics (Mixpanel, HTTP API). Off unless window.SF_CONFIG.mixpanelToken is set.
    Only fixed event names and a short list of categorical properties are ever sent. No titles, names or descriptions. */
 (function (root) {
   "use strict";
@@ -67,7 +67,7 @@
       p.distinct_id = anonId();
       p.time = Math.floor(Date.now() / 1000);
       p.$insert_id = Math.random().toString(36).slice(2) + Date.now().toString(36);
-      p.app = "ServiceFlow";
+      p.app = "HelpDesk";
       var body = JSON.stringify([{ event: s.event, properties: p }]);
       root.fetch("https://api.mixpanel.com/track?ip=0", {
         method: "POST", headers: { "Content-Type": "application/json", "Accept": "text/plain" },
@@ -78,5 +78,5 @@
   };
 
   if (typeof module !== "undefined" && module.exports) module.exports = api;
-  else root.ServiceFlowTrack = api;
+  else root.HelpDeskTrack = api;
 })(typeof window !== "undefined" ? window : this);

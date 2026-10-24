@@ -1,9 +1,9 @@
-/* ServiceFlow interface. Rendering, dialogs, events, localStorage and downloads. Business logic lives in core.js. */
+/* HelpDesk interface. Rendering, dialogs, events, localStorage and downloads. Business logic lives in core.js. */
 (function () {
   "use strict";
-  var C = window.ServiceFlowCore;
+  var C = window.HelpDeskCore;
   var STORE_KEY = "serviceflow.v1";
-  var DOWNLOADS = /*DOWNLOADS_START*/[["ServiceFlow_Master_Delivery_Plan.docx", "Master delivery plan (Word)"], ["Confluence_Handbook.md", "Product and technical handbook (Markdown)"], ["Engineering_Backlog.csv", "Engineering backlog (Jira import layout)"], ["Delivery_Tracker.csv", "Cross-functional delivery tracker (monday.com layout)"], ["Requirements_Traceability.csv", "Need to requirement to test to release disposition"], ["ServiceFlow_Wireframes.svg", "Editable SVG wireframes"], ["Sample_Requests.csv", "The 12 demonstration records as CSV"], ["Tool_Mapping.md", "Which tool holds what, and what was actually used"], ["QA_Evidence.md", "Executed test evidence, gaps and release recommendation"], ["Unit_Test_Results.txt", "Raw output of the unit tests"], ["Static_Checks.txt", "Raw output of the static checks"], ["Browser_Check_Results.txt", "Raw output of the browser checks"]]/*DOWNLOADS_END*/;
+  var DOWNLOADS = /*DOWNLOADS_START*/[["Confluence_Handbook.md", "Product and technical handbook (Markdown)"], ["Engineering_Backlog.csv", "Engineering backlog (Jira import layout)"], ["Delivery_Tracker.csv", "Cross-functional delivery tracker (monday.com layout)"], ["Requirements_Traceability.csv", "Need to requirement to test to release disposition"], ["HelpDesk_Wireframes.svg", "Editable SVG wireframes"], ["Sample_Requests.csv", "The 12 demonstration records as CSV"], ["Tool_Mapping.md", "Which tool holds what, and what was actually used"], ["QA_Evidence.md", "Executed test evidence, gaps and release recommendation"], ["Unit_Test_Results.txt", "Raw output of the unit tests"], ["Static_Checks.txt", "Raw output of the static checks"], ["Browser_Check_Results.txt", "Raw output of the browser checks"]]/*DOWNLOADS_END*/;
 
   var state = {
     requests: [],
@@ -74,7 +74,7 @@
     catch (e) {
       state.storageOk = false;
       state.requests = C.seedRequests();
-      showWarning("Browser storage is not available here, so nothing will be saved between visits. You can still use ServiceFlow in this tab and export a CSV to keep a copy.", true);
+      showWarning("Browser storage is not available here, so nothing will be saved between visits. You can still use HelpDesk in this tab and export a CSV to keep a copy.", true);
       return;
     }
     if (raw === null) {
@@ -101,7 +101,7 @@
     document.querySelectorAll("nav a[data-view]").forEach(function (a) {
       if (a.dataset.view === view) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current");
     });
-    document.title = VIEWS[view] + " | ServiceFlow (portfolio prototype)";
+    document.title = VIEWS[view] + " | HelpDesk (portfolio prototype)";
     renderers[view]();
     $("loading").hidden = true;
     if (moveFocus) {
@@ -179,7 +179,7 @@
   };
   function card(n, label) { return h("div", { class: "card" }, [h("div", { class: "num", text: String(n) }), h("div", { class: "lbl", text: label })]); }
 
-  function track(ev, props) { if (window.ServiceFlowTrack) window.ServiceFlowTrack.track(ev, props); }
+  function track(ev, props) { if (window.HelpDeskTrack) window.HelpDeskTrack.track(ev, props); }
 
   /* ---------- Requests ---------- */
   renderers.requests = function () {
@@ -268,17 +268,17 @@
     }
     root.appendChild(h("div", { class: "page-head" }, [h("div", null, [
       h("h1", { id: "h-case", text: "Delivery case study" }),
-      h("p", { class: "muted", text: "ServiceFlow, an employee service request portal. Product and delivery write-up by the product and project lead." })])]));
+      h("p", { class: "muted", text: "HelpDesk, an employee service request portal. Product and delivery write-up by the product and project lead." })])]));
     root.appendChild(h("div", { class: "cards" }, [
       card("3", "Departments in scope"), card("10", "Requirements, each with a test"), card("5", "Release gates"), card("63", "Automated checks passing")
     ]));
     root.appendChild(sec("Summary", [
-      h("p", { text: "Employees at Northstar Studio, a 75-person company, ask IT, Facilities and HR for help through email and chat. Requests arrive incomplete, nobody knows who owns them, and department heads cannot see workload. ServiceFlow replaces that with one structured form, a named owner for every request, a visible status and a shared view of workload." }),
+      h("p", { text: "Employees at Northstar Studio, a 75-person company, ask IT, Facilities and HR for help through email and chat. Requests arrive incomplete, nobody knows who owns them, and department heads cannot see workload. HelpDesk replaces that with one structured form, a named owner for every request, a visible status and a shared view of workload." }),
       h("p", { text: "I defined the scope, wrote the requirements, planned the delivery, built and tested the product and set up the tooling to track it. The release is a working prototype, ready for a pilot with one real team." })
     ]));
     root.appendChild(sec("Problem and users", [
       h("p", { text: "Three groups feel the problem differently." }),
-      table(["User", "Need", "What ServiceFlow gives them"], [
+      table(["User", "Need", "What HelpDesk gives them"], [
         ["Employee", "Ask once and know what happens next.", "A short form with clear errors, then an owner and status they can see."],
         ["Department owner", "Know what is waiting and who has it.", "Requests filtered by department, with owner and priority on each."],
         ["Operations director", "See workload across IT, Facilities and HR.", "An overview of active, unassigned and high-priority requests by department."]

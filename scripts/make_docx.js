@@ -30,7 +30,7 @@ function table(rows) {
 }
 const kids = [];
 // cover
-kids.push(new Paragraph({ spacing: { before: 2400 }, children: [new TextRun({ text: 'ServiceFlow', size: 64, bold: true, color: '14272E' })] }));
+kids.push(new Paragraph({ spacing: { before: 2400 }, children: [new TextRun({ text: 'HelpDesk', size: 64, bold: true, color: '14272E' })] }));
 kids.push(new Paragraph({ children: [new TextRun({ text: 'Master Delivery Plan', size: 36, color: '305BD8' })] }));
 kids.push(new Paragraph({ spacing: { before: 240 }, children: [new TextRun({ text: 'Employee service request portal for the fictional company Northstar Studio', size: 24 })] }));
 kids.push(new Paragraph({ spacing: { before: 480 }, children: [new TextRun({ text: 'AI-assisted independent portfolio project. Prepared by the portfolio owner. Date: 21 October 2026.', size: 22 })] }));
@@ -57,7 +57,7 @@ while (i < md.length) {
 }
 flush();
 const doc = new Document({
-  creator: 'ServiceFlow portfolio project', title: 'ServiceFlow Master Delivery Plan',
+  creator: 'HelpDesk portfolio project', title: 'HelpDesk Master Delivery Plan',
   features: { updateFields: true },
   styles: { default: { document: { run: { font: 'Calibri', size: 21, color: '19272E' } } },
     paragraphStyles: [
@@ -65,7 +65,7 @@ const doc = new Document({
       { id: 'Heading2', name: 'Heading 2', basedOn: 'Normal', next: 'Normal', quickFormat: true, run: { size: 25, bold: true, font: 'Calibri', color: '305BD8' }, paragraph: { spacing: { before: 200, after: 100 }, outlineLevel: 1 } } ] },
   numbering: { config: [{ reference: 'b', levels: [{ level: 0, format: LevelFormat.BULLET, text: '•', alignment: AlignmentType.LEFT, style: { paragraph: { indent: { left: 540, hanging: 270 } } } }] }] },
   sections: [{ properties: { page: { size: { width: 12240, height: 15840 }, margin: { top: 1440, right: 1440, bottom: 1440, left: 1440 } } },
-    footers: { default: new Footer({ children: [new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: 'ServiceFlow Master Delivery Plan | Simulated roles, synthetic data | Page ', size: 16, color: '5A6770' }), new TextRun({ children: [PageNumber.CURRENT], size: 16, color: '5A6770' })] })] }) },
+    footers: { default: new Footer({ children: [new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: 'HelpDesk Master Delivery Plan | Simulated roles, synthetic data | Page ', size: 16, color: '5A6770' }), new TextRun({ children: [PageNumber.CURRENT], size: 16, color: '5A6770' })] })] }) },
     children: kids }]
 });
-Packer.toBuffer(doc).then(b => { fs.writeFileSync(path.join(root, 'dist/delivery/ServiceFlow_Master_Delivery_Plan.docx'), b); console.log('docx written', b.length); });
+Packer.toBuffer(doc).then(b => { fs.writeFileSync(path.join(root, 'dist/delivery/HelpDesk_Master_Delivery_Plan.docx'), b); console.log('docx written', b.length); });
